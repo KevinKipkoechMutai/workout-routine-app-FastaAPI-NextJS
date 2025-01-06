@@ -1,7 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from .database import Base, engine
+from .routers import auth
 
 app = FastAPI()
+
+Base.metadata.create_all(bind=engine)
 
 #update CORS middleware
 app.add_middleware(
@@ -15,4 +19,6 @@ app.add_middleware(
 @app.get("/")
 def health_check():
     return { "Health check": "Complete" }
+
+app.include_router(auth.router)
 
