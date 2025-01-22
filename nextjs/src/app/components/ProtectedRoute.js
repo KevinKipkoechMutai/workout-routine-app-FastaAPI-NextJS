@@ -3,7 +3,7 @@ import { useEffect, useContext } from "react"
 import { useRouter } from "next/navigation"
 import AuthContext from "../context/AuthContext"
 
-const ProtectedROute = ({children}) => {
+const ProtectedRoute = ({children}) => {
     const {user} = useContext(AuthContext)
     const router = useRouter()
 
@@ -15,3 +15,5 @@ const ProtectedROute = ({children}) => {
 
     return user ? children : null
 }
+
+export default ProtectedRoute
