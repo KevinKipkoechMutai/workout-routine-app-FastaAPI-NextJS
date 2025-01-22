@@ -5,7 +5,7 @@ from api.models import Workout
 from api.deps import db_dependency, user_dependency
 
 router = APIRouter(
-    prefix='/workout',
+    prefix='/workouts',
     tags=['workouts']
 )
 
